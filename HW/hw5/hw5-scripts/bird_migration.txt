@@ -1,0 +1,26 @@
+Dataset: bird_migration.csv
+
+Source: D. Rubolini, F. Spina, N. Saino (2005). "Correlates of Timing
+of Spring Migration in Birds: A Comparative Study of trans-Saharan
+Migrants," Biological Journal of the Linnean Society, Vol. 85, pp.199-210.
+
+
+Description: Study relating various predictors to Spring migration
+date for 38 bird species. Variable names in parantheses 
+Y = Median date of migration for species: 1=April 1   (migDate)
+Predictors:
+mean latitude og breeding  (latBreed)
+mean latitude of wintering (latWntr)
+sexual dichromatism        (sexDchrm)
+nesting site:  0=open, 1=cavity  (nestSite)
+time of moult: 0=no complete moult in winter quarters, 1=complete (moult)
+wing length of males  (mWngLn)
+wing length of females  (fWngLn)
+
+Other Variables:
+speciesID
+species1
+species2
+number of birds for the species (numSpecies)
+X = latWntr
+Y = migDate

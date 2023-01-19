@@ -1,0 +1,133 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{verbatim}
+\usepackage[framed]{matlab-prettifier}
+\lstset{
+  style              = Matlab-editor,
+  escapechar         = ",
+  mlshowsectionrules = true,
+  extendedchars = false,
+}
+%include MATLAB code using "lstlisting" environment. For example:
+% \begin{lstlisting}[style=Matlab-editor]
+% A = randn(100); %random matrix
+% \end{lstlisting}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{solution}{Solution}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\title{MSSC 6040 - Homework 1}
+\author{Instructor: Greg Ongie}
+\date{Fall 2022}
+
+\pagenumbering{gobble} %remove pg numbers
+
+\begin{document}
+\vspace{-20em}
+\maketitle
+
+\begin{problem}[10 pts]
+The \emph{outer-product} of two vectors $a = \begin{bmatrix}
+a_1\\ a_2 \\ \vdots \\ a_m
+\end{bmatrix} \in \R^m$ and $b = \begin{bmatrix}b_1\\ a_2 \\ \vdots \\ b_n \end{bmatrix}\in \R^n$ is the $m\times n$ matrix given by
+\[
+ab^* =  
+\begin{bmatrix}
+a_1b_1 & a_1b_2 & \cdots & a_1b_n\\
+a_2b_1 & a_2b_2 & \cdots & a_2b_n\\
+\vdots &  \vdots & \ddots & \vdots \\
+a_mb_1 & a_mb_2 & \cdots & a_mb_n\\
+\end{bmatrix}\in \R^{m\times n}.
+\]
+For example, the outer product of $a = \begin{bmatrix}
+1 \\ 0 \\ -2 \\ 3 
+\end{bmatrix}$ and $b =\begin{bmatrix}
+-1 \\ 2 \\ 5 
+\end{bmatrix}$ is the $4\times 3$ matrix given by
+\[
+ab^* = 
+\begin{bmatrix}
+1 \\ 0 \\ -2 \\ 3 
+\end{bmatrix}
+\begin{bmatrix}
+-1 & 2 & 5 
+\end{bmatrix}
+= \begin{bmatrix}
+-1 & 2 & 5 \\
+0 & 0 & 0\\
+2 & -4 & -10\\
+-3 & 6 & 15 
+\end{bmatrix}.
+\]
+\begin{enumerate}[(a)]
+\item Express the following matrices as an outer product of two vectors:
+\[
+A = \begin{bmatrix}
+1 & 0 & 2 & -1\\
+2 & 0 & 4 & -2\\
+-1 & 0 & -2 & 1
+\end{bmatrix},\quad B = \begin{bmatrix}
+2 & -2 & 1 & -1\\
+-2 & 2 & -1 & 1
+\end{bmatrix},\quad C = \begin{bmatrix}
+1 & 2 & 3 & \cdots & n\\
+1 & 2 & 3 & \cdots & n\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1 & 2 & 3 & \cdots & n \\
+\end{bmatrix}\in \R^{n\times n}
+\]
+and the matrix $D \in \R^{m\times n}$ whose $(i,j)$th entry is equal to $1$ and all other entries are zero, i.e., $D_{i,j} = 1$ and $D_{k,\ell} = 0$ for all $(k,\ell) \neq (i,j)$.
+\item Prove that if $A$ is an $\ell \times m$ matrix and $B$ is a $n \times m$ matrix, then $C = AB^*$ is equal to the sum of the outer products of the columns of $A$ with the columns of $B$, i.e., 
+\[
+C=\sum_{k=1}^{m} A_{k} B_{k}^{*},
+\]
+where $A_k \in \R^{m}$ is the $k$th column of $A$ and $B_k \in \R^{n}$ is the $k$th column of $B$. \\
+(\emph{Hint: Use the formula for computing the $(i,j)$th entry of a matrix-matrix product given in lecture.})
+
+\item Use the above result to compute the matrix product $AB^*$ where $A$ and $B$ are specific $2\times 2$ matrices of your choosing. Verify that the matrix product is the same as what you would get using the “conventional” way of doing matrix multiplication using inner products between rows and columns.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[10 pts]
+T-B 1.3
+\end{problem}
+
+\begin{problem}[MATLAB, 5 pts]
+Use MATLAB's backslash operator \verb|\| to find the vector $x$ that satisfies the equation:
+\[
+A x = b
+\]
+where
+\[
+A = \begin{bmatrix} 1 & -1 & 0 & 0\\
+1 & 1 & 0 & 0\\
+0 & 0 & 1 & -1\\
+0 & 0 & 1 & 1\\
+\end{bmatrix} \quad\text{and}\quad b = \begin{bmatrix}
+1 \\ 2\\ 3\\4
+\end{bmatrix}.
+\]
+Verify (in MATLAB) that the vector $x$ you find is a solution by computing the matrix-vector product $Ax$ and comparing it with $b$. In your submitted pdf include a print-out/screenshot of your code (do not attach your MATLAB script).
+\end{problem}
+\end{document}
